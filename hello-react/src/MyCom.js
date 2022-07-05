@@ -1,43 +1,30 @@
-// import React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-// const MyCom = (props) => {
-//   //({name, hakbun, major}) => {} 이렇게 하고 밑에 const생략가능
-//   const { name, hakbun, major } = props;
-//   return (
-//     <div>
-//       <div>
-//         안녕하세요 ? 저는 {name} 이고, 학번은 {hakbun} 입니다. <br />
-//         전공은 {major} 입니다.
-//       </div>
-//     </div>
-//   );
-
-//   export default MyCom;
-
-import React, { Component } from 'react';
-import PropsType from 'prop-types';
-
-class MyCom extends Component {
-  render() {
-    const { name, hakbun, major } = this.props;
-    return (
-      <div>
-        <div>
-          안녕하세요 ? 저는 {name} 이고, 학번은 {hakbun} 입니다. <br />
-          전공은 {major} 입니다.
-        </div>
-      </div>
-    );
-  }
-}
+const MyCom = ({ name, children, favoriteNumber }) => {
+  //함수형 컴포넌트
+  //({name, hakbun, major}) => {} 이렇게 하고 밑에 const생략가능
+  // const { name, children } = props; //비구조화 할당 (구조분해할당)
+  return (
+    <div>
+      안녕하세요, 제 이름은 {name}입니다
+      <br />
+      children 값은 {children} 입니다.
+      <br />
+      제가 좋아하는 숫자는 {favoriteNumber}입니다.
+    </div>
+  );
+};
 
 MyCom.defaultProps = {
-  name: '일본IT',
-  hakbun: 2101032,
+  name: '김동구',
 };
+
 MyCom.prototype = {
-  name: PropsType.string,
-  age: PropsType.number,
+  //props검증 , props의 타입을 지정할 때 사용
+  name: PropTypes.string,
+  favoriteNumber: PropTypes.number.isRequired,
+  //propTypes를 지정하지 않았을 때 경고 메세지를 띄워 주는 작업
 };
 
 export default MyCom;

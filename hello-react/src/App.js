@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import MyCom from './MyCom';
 
 class App extends Component {
   render() {
-    const name = 'react';
+    const test = 'react';
     return (
       <>
-        <div className='react'>{name}</div>
+        <div className='react'>{test}</div>
+        <MyCom major='japan' />
       </>
     );
   }

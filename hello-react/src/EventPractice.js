@@ -13,18 +13,18 @@ class EventPractice extends Component {
     // 바인딩 하지 않으면 this가 undefined를 가리키게 된다.
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({
       message: e.target.value,
     });
-  }
+  };
 
-  handleClick() {
+  handleClick = () => {
     alert(this.state.message);
     this.setState({
       message: '',
     });
-  }
+  };
 
   render() {
     return (

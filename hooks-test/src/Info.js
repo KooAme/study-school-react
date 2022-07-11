@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer } from 'react';
+import useInput from './useInput';
 
 const uInfoUp = (state, action) => {
   return {
@@ -16,6 +17,12 @@ const Info = () => {
     name1: '',
     nickname1: '',
   });
+
+  const [state, onChangeMyHook] = useInput({
+    name2: '',
+    nickname2: '',
+  });
+  const { name2, nickname2 } = state;
 
   const onChangeName = (e) => {
     setName(e.target.value);
@@ -86,6 +93,40 @@ const Info = () => {
       <div>
         <b>닉네임 : </b>
         {nickname1}
+      </div>
+
+      <br />
+
+      <div>
+        <b>닉네임 : </b>
+        {nickname2}
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div>
+        <input
+          type='text'
+          name='name2'
+          value={name2}
+          onChange={onChangeMyHook}
+        />
+        <br />
+        <input
+          type='text'
+          name='nickname2'
+          value={nickname2}
+          onChange={onChange}
+        />
+      </div>
+      <div>
+        <b>이름 : </b>
+        {name2}
+      </div>
+
+      <div>
+        <b>닉네임 : </b>
+        {nickname2}
       </div>
     </>
   );

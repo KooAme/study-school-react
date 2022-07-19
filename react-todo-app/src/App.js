@@ -4,12 +4,20 @@ import TodoTemplate from './uiComponents/TodoTemplate';
 import TodoList from './uiComponents/TodoList';
 import { useCallback, useRef, useState } from 'react';
 
+const createTodoDatas = () => {
+  const arr = [];
+  for (let i = 1; i <= 2500; i++) {
+    arr.push({ id: i, text: `리액트 할일 예제 ${i}`, checked: false });
+  }
+  return arr;
+};
+
 function App() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: '리액트 연습1', checked: true },
-    { id: 2, text: '리액트 연습2', checked: true },
-    { id: 3, text: '리액트 연습3', checked: false },
-  ]);
+  const [todos, setTodos] = useState(createTodoDatas);
+  //   { id: 1, text: '리액트 연습1', checked: true },
+  //   { id: 2, text: '리액트 연습2', checked: true },
+  //   { id: 3, text: '리액트 연습3', checked: false },
+  // ]);
   const nextId = useRef(4);
   const onInsert = useCallback(
     (text) => {
